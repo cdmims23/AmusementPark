@@ -10,10 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-  
     // Hold Entrant.
-    var entrantHolder: EntrantType
+    var entrantHolder: EntrantType! // Implicitly unwrapped because it will always have a value.
     
     // Entrant Buttons.
     @IBOutlet weak var guestButton: UIButton!
@@ -104,10 +102,38 @@ class ViewController: UIViewController {
     }
     
     @IBAction func generatePass(_ sender: UIButton) {
-        
+        do{
+            let newPass = try Pass(firstName: firstName.text, lastName: lastName.text, streetAddress: streetAddress.text, city: city.text, state: state.text, zipCode: zipCode.text, dateOfBirth: dateOfBirth.text, vendorCompany: company.text, entrant: entrantHolder)
+            
+        } catch creationError.firstName {
+            showAlert(title: "Missing Information", message: creationError.firstName.rawValue)
+        } catch creationError.lastName {
+            showAlert(title: "Missing Information", message: creationError.lastName.rawValue)
+        } catch  creationError.streetAddress {
+            showAlert(title: "Missing Information", message: creationError.streetAddress.rawValue)
+        } catch creationError.city {
+            showAlert(title: "Missing Information", message: creationError.city.rawValue)
+        } catch creationError.state {
+            showAlert(title: "Missing Information", message: creationError.state.rawValue)
+        } catch creationError.zipCode {
+            showAlert(title: "Missing Information", message: creationError.zipCode.rawValue)
+        } catch creationError.dateOfBirth {
+            showAlert(title: "Missing Information", message: creationError.dateOfBirth.rawValue)
+        } catch creationError.vendor {
+            showAlert(title: "Missing Information", message: creationError.vendor.rawValue)
+        } catch {
+            
+        }
         
     }
     
+    func showAlert(title: String, message: String) {
+        let alertVC = UIAlertController(title: "No Camera", message: "Sorry this device has no camera", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertVC.addAction(okAction)
+        present(alertVC, animated: true, completion: nil)
+
+    }
     
     func activateTextField(typeName: String) {
         switch typeName {

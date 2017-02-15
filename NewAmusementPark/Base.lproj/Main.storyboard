@@ -296,7 +296,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="generatePass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pMP-yh-O2E"/>
+                                    <action selector="generatePass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="400-Kl-UMw"/>
+                                    <segue destination="rhI-zp-DKV" kind="presentation" id="IKJ-jA-hIY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gP-OM-dFK">
@@ -589,7 +590,17 @@
                                 <state key="normal" title="Take Photo">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="shootPhoto:" destination="rhI-zp-DKV" eventType="touchUpInside" id="AyJ-fo-7PK"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToG-vC-HuD">
+                                <rect key="frame" x="524" y="147" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -625,6 +636,10 @@
                             <constraint firstItem="4sV-0Q-sYx" firstAttribute="top" secondItem="xWz-Ol-XDo" secondAttribute="bottom" constant="8" id="vqh-9o-2vT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myImageView" destination="xWz-Ol-XDo" id="6gZ-ss-AnA"/>
+                        <outlet property="nameLabel" destination="ToG-vC-HuD" id="GAs-Iy-zm9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJl-cx-saq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
