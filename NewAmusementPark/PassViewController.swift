@@ -13,6 +13,8 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var entrantPass: Pass!
+    
     // Picker for camera.
     let picker = UIImagePickerController()
     
@@ -28,10 +30,14 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    @IBAction func createNewPass(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
          picker.delegate = self
+         nameLabel.text = entrantPass.firstName
  
         // Do any additional setup after loading the view.
     }

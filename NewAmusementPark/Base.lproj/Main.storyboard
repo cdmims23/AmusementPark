@@ -297,7 +297,7 @@
                                 </state>
                                 <connections>
                                     <action selector="generatePass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="400-Kl-UMw"/>
-                                    <segue destination="rhI-zp-DKV" kind="presentation" id="IKJ-jA-hIY"/>
+                                    <segue destination="rhI-zp-DKV" kind="show" identifier="goToPass" id="Qjc-wZ-vjU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gP-OM-dFK">
@@ -447,6 +447,7 @@
                         <outlet property="dateOfBirth" destination="mSq-ok-lOL" id="jIv-86-3i1"/>
                         <outlet property="employeeButton" destination="rB3-Uq-li5" id="pnK-Dw-txc"/>
                         <outlet property="firstName" destination="mpF-5Q-nxr" id="BoH-Q2-GKH"/>
+                        <outlet property="generatePass" destination="qpZ-yh-29S" id="Fvq-or-cdQ"/>
                         <outlet property="guestButton" destination="PXP-8n-jqn" id="V6b-4O-CiC"/>
                         <outlet property="lastName" destination="SuJ-hN-fSz" id="DJe-vt-Dfq"/>
                         <outlet property="managerButton" destination="uMP-Zq-GQ1" id="ZWZ-T1-HJH"/>
@@ -576,6 +577,9 @@
                                 <state key="normal" title="Create New Pass">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="createNewPass:" destination="rhI-zp-DKV" eventType="touchUpInside" id="mUT-IL-fhN"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xWz-Ol-XDo">
                                 <rect key="frame" x="33" y="147" width="291" height="261"/>

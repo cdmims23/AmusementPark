@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     
     // Hold Entrant.
     var entrantHolder: EntrantType! // Implicitly unwrapped because it will always have a value.
+    var newPass: Pass!
+    
+    @IBOutlet weak var generatePass: UIButton!
     
     // Entrant Buttons.
     @IBOutlet weak var guestButton: UIButton!
@@ -103,7 +106,9 @@ class ViewController: UIViewController {
     
     @IBAction func generatePass(_ sender: UIButton) {
         do{
-            let newPass = try Pass(firstName: firstName.text, lastName: lastName.text, streetAddress: streetAddress.text, city: city.text, state: state.text, zipCode: zipCode.text, dateOfBirth: dateOfBirth.text, vendorCompany: company.text, entrant: entrantHolder)
+             newPass = try Pass(firstName: firstName.text, lastName: lastName.text, streetAddress: streetAddress.text, city: city.text, state: state.text, zipCode: zipCode.text, dateOfBirth: dateOfBirth.text, vendorCompany: company.text, entrant: entrantHolder)
+            
+            print(newPass.firstName)
             
         } catch creationError.firstName {
             showAlert(title: "Missing Information", message: creationError.firstName.rawValue)
@@ -124,11 +129,18 @@ class ViewController: UIViewController {
         } catch {
             
         }
-        
     }
     
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPass" {
+            let destinationVC = segue.destination as! PassViewController
+            destinationVC.entrantPass = newPass
+        }
+    }
+    
+    
     func showAlert(title: String, message: String) {
-        let alertVC = UIAlertController(title: "No Camera", message: "Sorry this device has no camera", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertVC.addAction(okAction)
         present(alertVC, animated: true, completion: nil)

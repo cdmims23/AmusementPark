@@ -67,41 +67,41 @@ class Pass: EntrantType {
         
         switch entrant {
         case Employee.foodeService, Employee.maintenance, Employee.manager, Employee.rideService, Guest.season, Employee.contract:
-            if self.firstName == nil {
+            if self.firstName == "" {
                 throw creationError.firstName
-            } else if self.lastName == nil {
+            } else if self.lastName == "" {
                 throw creationError.lastName
-            } else if self.streetAddress == nil {
+            } else if self.streetAddress == "" {
                 throw creationError.streetAddress
-            } else if self.city == nil {
+            } else if self.city == "" {
                 throw creationError.city
-            } else if self.state == nil {
+            } else if self.state == "" {
                 throw creationError.state
-            } else if self.zipCode == nil {
+            } else if self.zipCode == "" {
                 throw creationError.zipCode
             }
         case Guest.freechild:
-            if self.dateOfBirth == nil {
+            if self.dateOfBirth == "" {
                 throw creationError.dateOfBirth
             }
             
         case Guest.senior:
-            if self.firstName == nil {
+            if self.firstName == "" {
                 throw creationError.firstName
-            } else if self.lastName == nil {
+            } else if self.lastName == "" {
                 throw creationError.lastName
-            } else if self.dateOfBirth == nil {
+            } else if self.dateOfBirth == "" {
                 throw creationError.dateOfBirth
             }
             
         case Other.vendor:
-            if self.firstName == nil {
+            if self.firstName == "" {
                 throw creationError.firstName
-            } else if self.lastName == nil {
+            } else if self.lastName == "" {
                 throw creationError.lastName
-            } else if self.dateOfBirth == nil {
+            } else if self.dateOfBirth == "" {
                 throw creationError.dateOfBirth
-            } else if self.vendorCompany == nil {
+            } else if self.vendorCompany == "" {
                 throw creationError.vendor
             }
         default:
