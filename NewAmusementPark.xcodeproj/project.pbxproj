@@ -14,6 +14,7 @@
 		C0523C601E51543A00AE31E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0523C5E1E51543A00AE31E1 /* LaunchScreen.storyboard */; };
 		C0523C681E51746400AE31E1 /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0523C671E51746400AE31E1 /* Access.swift */; };
 		C0523C6A1E51747300AE31E1 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0523C691E51747300AE31E1 /* Pass.swift */; };
+		C08AF61A1E541E8B009C7530 /* PassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08AF6191E541E8B009C7530 /* PassViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C0523C611E51543A00AE31E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0523C671E51746400AE31E1 /* Access.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
 		C0523C691E51747300AE31E1 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		C08AF6191E541E8B009C7530 /* PassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				C0523C551E51543A00AE31E1 /* AppDelegate.swift */,
 				C0523C571E51543A00AE31E1 /* ViewController.swift */,
 				C0523C591E51543A00AE31E1 /* Main.storyboard */,
+				C08AF6191E541E8B009C7530 /* PassViewController.swift */,
 				C0523C671E51746400AE31E1 /* Access.swift */,
 				C0523C691E51747300AE31E1 /* Pass.swift */,
 				C0523C5C1E51543A00AE31E1 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				C0523C6A1E51747300AE31E1 /* Pass.swift in Sources */,
 				C0523C581E51543A00AE31E1 /* ViewController.swift in Sources */,
 				C0523C681E51746400AE31E1 /* Access.swift in Sources */,
+				C08AF61A1E541E8B009C7530 /* PassViewController.swift in Sources */,
 				C0523C561E51543A00AE31E1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +314,7 @@
 				C0523C661E51543A00AE31E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

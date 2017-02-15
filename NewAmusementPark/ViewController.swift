@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+  
+    // Hold Entrant.
+    var entrantHolder: EntrantType
+    
     // Entrant Buttons.
     @IBOutlet weak var guestButton: UIButton!
     @IBOutlet weak var employeeButton: UIButton!
@@ -22,8 +27,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var typeThreeButton: UIButton!
     @IBOutlet weak var typeFourButton: UIButton!
     @IBOutlet weak var typeFiveButton: UIButton!
+
     
-    // Text Field Outlets.
+    // Input Outlets.
     @IBOutlet weak var dateOfBirth: UITextField!
     @IBOutlet weak var ssn: UITextField!
     @IBOutlet weak var projectNumber: UITextField!
@@ -35,6 +41,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var state: UITextField!
     @IBOutlet weak var zipCode: UITextField!
     
+    // Button Functions.
     
     @IBAction func entrantSelection(_ sender: UIButton) {
         switch sender {
@@ -44,8 +51,10 @@ class ViewController: UIViewController {
             showButtons(button: employeeButton)
         case managerButton:
             showButtons(button: managerButton)
+            entrantHolder = Employee.manager
         case vendorButton:
             showButtons(button: vendorButton)
+            entrantHolder = Other.vendor
         default:
             break
         }
@@ -56,34 +65,49 @@ class ViewController: UIViewController {
         case typeOneButton:
             if typeOneButton.title(for: .normal) == "Child"{
                 activateTextField(typeName: "Child")
+                entrantHolder = Guest.freechild
             } else {
                 activateTextField(typeName: "Food Service")
+                entrantHolder = Employee.foodeService
             }
         case typeTwoButton:
             if typeTwoButton.title(for: .normal) == "Classic" {
                 activateTextField(typeName: "Classic")
+                entrantHolder = Guest.classic
             } else {
                 activateTextField(typeName: "Ride Service")
+                entrantHolder = Employee.rideService
             }
         case typeThreeButton:
             if typeThreeButton.title(for: .normal) == "VIP" {
                 activateTextField(typeName: "VIP")
+                entrantHolder = Guest.vip
             } else {
                 activateTextField(typeName: "Maintenance")
+                entrantHolder = Employee.manager
             }
         case typeFourButton:
             if typeFourButton.title(for: .normal) == "Season" {
                 activateTextField(typeName: "Season")
+                entrantHolder = Guest.season
             } else {
                 activateTextField(typeName: "Contract")
+                entrantHolder = Employee.contract
             }
         case typeFiveButton:
             if typeFiveButton.title(for: .normal) == "Senior" {
                 activateTextField(typeName: "Senior")
+                entrantHolder = Guest.senior
             }
         default: break
         }
     }
+    
+    @IBAction func generatePass(_ sender: UIButton) {
+        
+        
+    }
+    
     
     func activateTextField(typeName: String) {
         switch typeName {
@@ -148,9 +172,9 @@ class ViewController: UIViewController {
             typeFiveButton.isHidden = false
             
         case employeeButton:
-            typeOneButton.setTitle("Food Service", for: .normal)
+            typeOneButton.setTitle("Food", for: .normal)
             typeOneButton.isHidden = false
-            typeTwoButton.setTitle("Ride Service", for: .normal)
+            typeTwoButton.setTitle("Ride", for: .normal)
             typeTwoButton.isHidden = false
             typeThreeButton.setTitle("Maintenance", for: .normal)
             typeThreeButton.isHidden = false

@@ -107,7 +107,6 @@ class Pass: EntrantType {
         default:
             break
         }
-        
     }
 }
 
