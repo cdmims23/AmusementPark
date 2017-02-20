@@ -47,15 +47,21 @@ class ViewController: UIViewController {
     @IBAction func entrantSelection(_ sender: UIButton) {
         switch sender {
         case guestButton:
+            guestButton.showsTouchWhenHighlighted = true
             showButtons(button: guestButton)
         case employeeButton:
+            employeeButton.showsTouchWhenHighlighted = true
             showButtons(button: employeeButton)
         case managerButton:
+            managerButton.showsTouchWhenHighlighted = true
             showButtons(button: managerButton)
             entrantHolder = Employee.manager
+            checkEntrant()
         case vendorButton:
+            vendorButton.showsTouchWhenHighlighted = true
             showButtons(button: vendorButton)
             entrantHolder = Other.vendor
+            checkEntrant()
         default:
             break
         }
@@ -67,48 +73,55 @@ class ViewController: UIViewController {
             if typeOneButton.title(for: .normal) == "Child"{
                 activateTextField(typeName: "Child")
                 entrantHolder = Guest.freechild
+                checkEntrant()
             } else {
                 activateTextField(typeName: "Food Service")
                 entrantHolder = Employee.foodeService
+                checkEntrant()
             }
         case typeTwoButton:
             if typeTwoButton.title(for: .normal) == "Classic" {
                 activateTextField(typeName: "Classic")
                 entrantHolder = Guest.classic
+                checkEntrant()
             } else {
                 activateTextField(typeName: "Ride Service")
                 entrantHolder = Employee.rideService
+                checkEntrant()
             }
         case typeThreeButton:
             if typeThreeButton.title(for: .normal) == "VIP" {
                 activateTextField(typeName: "VIP")
                 entrantHolder = Guest.vip
+                checkEntrant()
             } else {
                 activateTextField(typeName: "Maintenance")
                 entrantHolder = Employee.manager
+                checkEntrant()
             }
         case typeFourButton:
             if typeFourButton.title(for: .normal) == "Season" {
                 activateTextField(typeName: "Season")
                 entrantHolder = Guest.season
+               checkEntrant()
             } else {
                 activateTextField(typeName: "Contract")
                 entrantHolder = Employee.contract
+                checkEntrant()
             }
         case typeFiveButton:
             if typeFiveButton.title(for: .normal) == "Senior" {
                 activateTextField(typeName: "Senior")
                 entrantHolder = Guest.senior
+                checkEntrant()
             }
         default: break
         }
     }
     
     @IBAction func generatePass(_ sender: UIButton) {
-        do{
-             newPass = try Pass(firstName: firstName.text, lastName: lastName.text, streetAddress: streetAddress.text, city: city.text, state: state.text, zipCode: zipCode.text, dateOfBirth: dateOfBirth.text, vendorCompany: company.text, entrant: entrantHolder)
-            
-            print(newPass.firstName)
+        do {
+             newPass = try Pass(firstName: firstName.text, lastName: lastName.text, streetAddress: streetAddress.text, city: city.text, state: state.text, zipCode: zipCode.text, dateOfBirth: dateOfBirth.text, vendorCompany: company.text, entrant: entrantHolder!)
             
         } catch creationError.firstName {
             showAlert(title: "Missing Information", message: creationError.firstName.rawValue)
@@ -131,10 +144,26 @@ class ViewController: UIViewController {
         }
     }
     
+    /* The populate data button automatically inputs data to create a pass for a classic entrant to test the pass generator */
+    @IBAction func populateData(_ sender: UIButton) {
+        entrantHolder = Guest.classic
+        dateOfBirth.text = "01/01/1901"
+        firstName.text = "Jane"
+        lastName.text = "Doe"
+        streetAddress.text = "1000 Pleasant Lane"
+        city.text = "Happy"
+        state.text = "CA"
+        zipCode.text = "55555"
+        generatePass.isEnabled = true
+    }
+    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToPass" {
             let destinationVC = segue.destination as! PassViewController
             destinationVC.entrantPass = newPass
+            entrantHolder = nil
+            checkEntrant()
+            deleteText()
         }
     }
     
@@ -239,11 +268,39 @@ class ViewController: UIViewController {
         }
         
     }
-
     
+    func checkEntrant() {
+        if entrantHolder == nil {
+            generatePass.isEnabled = false
+        } else {
+            generatePass.isEnabled = true
+        }
+    }
+    
+    func deleteText() {
+        dateOfBirth.text = ""
+        ssn.text = ""
+        projectNumber.text = ""
+        firstName.text = ""
+        lastName.text = ""
+        company.text = ""
+        streetAddress.text = ""
+        city.text = ""
+        state.text = ""
+        zipCode.text = ""
+
+    }
+    
+    func changeColor(sender: UIButton) {
+        sender.setTitleColor(UIColor.lightGray, for: .selected)
+        //Edit details later.
+        
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        generatePass.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {

@@ -86,8 +86,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXP-8n-jqn">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Guest">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="entrantSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Qi-3e-FIE"/>
@@ -310,6 +314,9 @@
                                 <state key="normal" title="Populate Data">
                                     <color key="titleColor" red="0.29803921570000003" green="0.81171332470000002" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="populateData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cWb-5O-wsE"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="GtE-Ak-U3V">
                                 <rect key="frame" x="20" y="108" width="725" height="36"/>
@@ -532,6 +539,9 @@
                                         <state key="normal" title="Area Access">
                                             <color key="titleColor" red="0.050980392159999999" green="0.60785590280000001" blue="0.5385742188" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="areaAccess:" destination="rhI-zp-DKV" eventType="touchUpInside" id="EYE-Uy-Iaw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCB-eC-P2d">
                                         <rect key="frame" x="247" y="0.0" width="177" height="39"/>
@@ -540,6 +550,9 @@
                                         <state key="normal" title="Ride Access">
                                             <color key="titleColor" red="0.050980392159999999" green="0.60785590280000001" blue="0.5385742188" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="rideAccess:" destination="rhI-zp-DKV" eventType="touchUpInside" id="cYN-nc-X6J"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZp-6e-fUp">
                                         <rect key="frame" x="494" y="0.0" width="177" height="39"/>
@@ -548,6 +561,9 @@
                                         <state key="normal" title="Discount Access">
                                             <color key="titleColor" red="0.050980392159999999" green="0.60785590280000001" blue="0.5385742188" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="discountAccess:" destination="rhI-zp-DKV" eventType="touchUpInside" id="EMs-LE-SlD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -557,7 +573,7 @@
                                     <constraint firstItem="rZp-6e-fUp" firstAttribute="height" secondItem="cq2-yk-6Z4" secondAttribute="height" id="xal-hK-JpM"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfI-xY-r8E">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfI-xY-r8E">
                                 <rect key="frame" x="20" y="680" width="728" height="197"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -598,8 +614,8 @@
                                     <action selector="shootPhoto:" destination="rhI-zp-DKV" eventType="touchUpInside" id="AyJ-fo-7PK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToG-vC-HuD">
-                                <rect key="frame" x="524" y="147" width="66" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToG-vC-HuD">
+                                <rect key="frame" x="332" y="147" width="388" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -643,6 +659,7 @@
                     <connections>
                         <outlet property="myImageView" destination="xWz-Ol-XDo" id="6gZ-ss-AnA"/>
                         <outlet property="nameLabel" destination="ToG-vC-HuD" id="GAs-Iy-zm9"/>
+                        <outlet property="testResults" destination="nfI-xY-r8E" id="Rb1-Kr-3oZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJl-cx-saq" userLabel="First Responder" sceneMemberID="firstResponder"/>

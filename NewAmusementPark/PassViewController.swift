@@ -12,6 +12,25 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var testResults: UILabel!
+    
+    
+    @IBAction func areaAccess(_ sender: UIButton) {
+        let accessResult = Access.areaSwipe(pass: entrantPass)
+        testResults.text = accessResult
+    }
+    
+    @IBAction func rideAccess(_ sender: UIButton) {
+        let accessResult = Access.rideSwipe(pass: entrantPass)
+        testResults.text = accessResult
+    }
+    
+    @IBAction func discountAccess(_ sender: UIButton) {
+        let accessResult = Access.discountSwipe(pass: entrantPass)
+        testResults.text = accessResult
+    }
+    
+    
     
     var entrantPass: Pass!
     
@@ -37,7 +56,7 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
          picker.delegate = self
-         nameLabel.text = entrantPass.firstName
+         nameLabel.text = "\(entrantPass.firstName!) \(entrantPass.lastName!)"
  
         // Do any additional setup after loading the view.
     }
