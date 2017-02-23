@@ -43,24 +43,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var zipCode: UITextField!
     
     // Button Functions.
-    
     @IBAction func entrantSelection(_ sender: UIButton) {
+        sender.showsTouchWhenHighlighted = true
         switch sender {
         case guestButton:
-            guestButton.showsTouchWhenHighlighted = true
             showButtons(button: guestButton)
+            changeColor(sender: sender)
+            normalColor(sender: sender)
         case employeeButton:
-            employeeButton.showsTouchWhenHighlighted = true
             showButtons(button: employeeButton)
+            changeColor(sender: sender)
+            normalColor(sender: sender)
         case managerButton:
-            managerButton.showsTouchWhenHighlighted = true
             showButtons(button: managerButton)
             entrantHolder = Employee.manager
+            changeColor(sender: sender)
             checkEntrant()
         case vendorButton:
-            vendorButton.showsTouchWhenHighlighted = true
             showButtons(button: vendorButton)
             entrantHolder = Other.vendor
+            changeColor(sender: sender)
             checkEntrant()
         default:
             break
@@ -68,49 +70,60 @@ class ViewController: UIViewController {
     }
 
     @IBAction func detailedEntrantSelection(_ sender: UIButton) {
+        sender.showsTouchWhenHighlighted = true
         switch sender {
         case typeOneButton:
+            //sender.showsTouchWhenHighlighted = true
             if typeOneButton.title(for: .normal) == "Child"{
+                changeColor(sender: sender)
                 activateTextField(typeName: "Child")
                 entrantHolder = Guest.freechild
                 checkEntrant()
             } else {
+                changeColor(sender: sender)
                 activateTextField(typeName: "Food Service")
                 entrantHolder = Employee.foodeService
                 checkEntrant()
             }
         case typeTwoButton:
             if typeTwoButton.title(for: .normal) == "Classic" {
+                changeColor(sender: sender)
                 activateTextField(typeName: "Classic")
                 entrantHolder = Guest.classic
                 checkEntrant()
             } else {
+                changeColor(sender: sender)
                 activateTextField(typeName: "Ride Service")
                 entrantHolder = Employee.rideService
                 checkEntrant()
             }
         case typeThreeButton:
             if typeThreeButton.title(for: .normal) == "VIP" {
+                changeColor(sender: sender)
                 activateTextField(typeName: "VIP")
                 entrantHolder = Guest.vip
                 checkEntrant()
             } else {
+                changeColor(sender: sender)
                 activateTextField(typeName: "Maintenance")
                 entrantHolder = Employee.manager
                 checkEntrant()
             }
         case typeFourButton:
             if typeFourButton.title(for: .normal) == "Season" {
+                changeColor(sender: sender)
                 activateTextField(typeName: "Season")
                 entrantHolder = Guest.season
                checkEntrant()
             } else {
+                changeColor(sender: sender)
                 activateTextField(typeName: "Contract")
                 entrantHolder = Employee.contract
                 checkEntrant()
             }
         case typeFiveButton:
             if typeFiveButton.title(for: .normal) == "Senior" {
+                changeColor(sender: sender)
                 activateTextField(typeName: "Senior")
                 entrantHolder = Guest.senior
                 checkEntrant()
@@ -291,12 +304,6 @@ class ViewController: UIViewController {
 
     }
     
-    func changeColor(sender: UIButton) {
-        sender.setTitleColor(UIColor.lightGray, for: .selected)
-        //Edit details later.
-        
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -307,7 +314,82 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func changeColor(sender: UIButton) {
+        switch sender {
+        case guestButton:
+          guestButton.setTitleColor(UIColor.lightGray, for: .normal)
+            employeeButton.setTitleColor(UIColor.white, for: .normal)
+            managerButton.setTitleColor(UIColor.white, for: .normal)
+            vendorButton.setTitleColor(UIColor.white, for: .normal)
+        case employeeButton:
+            employeeButton.setTitleColor(UIColor.lightGray, for: .normal)
+            guestButton.setTitleColor(UIColor.white, for: .normal)
+            managerButton.setTitleColor(UIColor.white, for: .normal)
+            vendorButton.setTitleColor(UIColor.white, for: .normal)
+        case managerButton:
+            managerButton.setTitleColor(UIColor.lightGray, for: .normal)
+            guestButton.setTitleColor(UIColor.white, for: .normal)
+            employeeButton.setTitleColor(UIColor.white, for: .normal)
+            vendorButton.setTitleColor(UIColor.white, for: .normal)
+        case vendorButton:
+            vendorButton.setTitleColor(UIColor.lightGray, for: .normal)
+            guestButton.setTitleColor(UIColor.white, for: .normal)
+            employeeButton.setTitleColor(UIColor.white, for: .normal)
+            managerButton.setTitleColor(UIColor.white, for: .normal)
+        case typeOneButton:
+            typeOneButton.setTitleColor(UIColor.lightGray, for: .normal)
+            typeTwoButton.setTitleColor(UIColor.white, for: .normal)
+            typeThreeButton.setTitleColor(UIColor.white, for: .normal)
+            typeFourButton.setTitleColor(UIColor.white, for: .normal)
+            typeFiveButton.setTitleColor(UIColor.white, for: .normal)
+        case typeTwoButton:
+            typeOneButton.setTitleColor(UIColor.white, for: .normal)
+            typeTwoButton.setTitleColor(UIColor.lightGray, for: .normal)
+            typeThreeButton.setTitleColor(UIColor.white, for: .normal)
+            typeFourButton.setTitleColor(UIColor.white, for: .normal)
+            typeFiveButton.setTitleColor(UIColor.white, for: .normal)
+        case typeThreeButton:
+            typeOneButton.setTitleColor(UIColor.white, for: .normal)
+            typeTwoButton.setTitleColor(UIColor.white, for: .normal)
+            typeThreeButton.setTitleColor(UIColor.lightGray, for: .normal)
+            typeFourButton.setTitleColor(UIColor.white, for: .normal)
+            typeFiveButton.setTitleColor(UIColor.white, for: .normal)
+        case typeFourButton:
+            typeOneButton.setTitleColor(UIColor.white, for: .normal)
+            typeTwoButton.setTitleColor(UIColor.white, for: .normal)
+            typeThreeButton.setTitleColor(UIColor.white, for: .normal)
+            typeFourButton.setTitleColor(UIColor.lightGray, for: .normal)
+            typeFiveButton.setTitleColor(UIColor.white, for: .normal)
+        case typeFiveButton:
+            typeOneButton.setTitleColor(UIColor.white, for: .normal)
+            typeTwoButton.setTitleColor(UIColor.white, for: .normal)
+            typeThreeButton.setTitleColor(UIColor.white, for: .normal)
+            typeFourButton.setTitleColor(UIColor.white, for: .normal)
+            typeFiveButton.setTitleColor(UIColor.lightGray, for: .normal)
+        default:
+            break
+        }
+    }
+    
+    func normalColor(sender: UIButton) {
+        switch sender {
+        case guestButton:
+            typeOneButton.setTitleColor(UIColor.white, for: .normal)
+            typeTwoButton.setTitleColor(UIColor.white, for: .normal)
+            typeThreeButton.setTitleColor(UIColor.white, for: .normal)
+            typeFourButton.setTitleColor(UIColor.white, for: .normal)
+            typeFiveButton.setTitleColor(UIColor.white, for: .normal)
+        case employeeButton:
+            typeOneButton.setTitleColor(UIColor.white, for: .normal)
+            typeTwoButton.setTitleColor(UIColor.white, for: .normal)
+            typeThreeButton.setTitleColor(UIColor.white, for: .normal)
+            typeFourButton.setTitleColor(UIColor.white, for: .normal)
+            typeFiveButton.setTitleColor(UIColor.white, for: .normal)
+        default:
+            break
+        }
+    }
+    
 }
 

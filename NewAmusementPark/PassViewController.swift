@@ -13,22 +13,7 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var testResults: UILabel!
-    
-    
-    @IBAction func areaAccess(_ sender: UIButton) {
-        let accessResult = Access.areaSwipe(pass: entrantPass)
-        testResults.text = accessResult
-    }
-    
-    @IBAction func rideAccess(_ sender: UIButton) {
-        let accessResult = Access.rideSwipe(pass: entrantPass)
-        testResults.text = accessResult
-    }
-    
-    @IBAction func discountAccess(_ sender: UIButton) {
-        let accessResult = Access.discountSwipe(pass: entrantPass)
-        testResults.text = accessResult
-    }
+ 
     
     
     
