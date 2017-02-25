@@ -14,12 +14,33 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var testResults: UILabel!
     @IBOutlet weak var entrantTypeLabel: UILabel!
- 
+    @IBOutlet weak var merchandiseDiscount: UILabel!
+    @IBOutlet weak var areaAccess: UIButton!
+    @IBOutlet weak var rideAccess: UIButton!
+    @IBOutlet weak var discountAccess: UIButton!
     
     
     
     var entrantPass: Pass!
     
+    @IBAction func accessFunction(_ sender: UIButton) {
+        var accessResult: String
+        
+        switch sender {
+        case discountAccess:
+            accessResult = Access.discountSwipe(pass: entrantPass)
+            testResults.text = accessResult
+        case rideAccess:
+            accessResult = Access.rideSwipe(pass: entrantPass)
+            testResults.text = accessResult
+        case areaAccess:
+            accessResult = Access.areaSwipe(pass: entrantPass)
+            testResults.text = accessResult
+        default:
+            break
+        }
+    }
+
     // Picker for camera.
     let picker = UIImagePickerController()
     
@@ -44,6 +65,7 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
          picker.delegate = self
          nameLabel.text = "\(entrantPass.firstName!) \(entrantPass.lastName!)"
         entrantTypeLabel.text = entrantPass.entrant.newValue
+        //merchandiseDiscount.text = Access.discountAmount[""]
         
         // Do any additional setup after loading the view.
     }

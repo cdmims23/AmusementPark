@@ -539,6 +539,9 @@
                                         <state key="normal" title="Area Access">
                                             <color key="titleColor" red="0.050980392159999999" green="0.60785590280000001" blue="0.5385742188" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="accessFunction:" destination="rhI-zp-DKV" eventType="touchUpInside" id="cus-sq-dsr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCB-eC-P2d">
                                         <rect key="frame" x="247" y="0.0" width="177" height="39"/>
@@ -547,6 +550,9 @@
                                         <state key="normal" title="Ride Access">
                                             <color key="titleColor" red="0.050980392159999999" green="0.60785590280000001" blue="0.5385742188" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="accessFunction:" destination="rhI-zp-DKV" eventType="touchUpInside" id="iZ8-E0-kPZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZp-6e-fUp">
                                         <rect key="frame" x="494" y="0.0" width="177" height="39"/>
@@ -555,6 +561,9 @@
                                         <state key="normal" title="Discount Access">
                                             <color key="titleColor" red="0.050980392159999999" green="0.60785590280000001" blue="0.5385742188" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="accessFunction:" destination="rhI-zp-DKV" eventType="touchUpInside" id="Xgb-HY-FSY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -612,32 +621,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Free Child Pass" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVU-hL-bUz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Free Child Pass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVU-hL-bUz">
                                 <rect key="frame" x="398" y="185" width="350" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10% Food Discount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GR-0g-qSw">
-                                <rect key="frame" x="398" y="305" width="350" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unlimited Rides" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjN-0j-yng">
-                                <rect key="frame" x="398" y="330" width="350" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20% Merch Discount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UK4-VY-8GA">
-                                <rect key="frame" x="398" y="283" width="350" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -676,9 +664,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="areaAccess" destination="cq2-yk-6Z4" id="uGB-gJ-YcB"/>
+                        <outlet property="discountAccess" destination="rZp-6e-fUp" id="SJU-1j-JLG"/>
                         <outlet property="entrantTypeLabel" destination="rVU-hL-bUz" id="NfH-4K-zhB"/>
                         <outlet property="myImageView" destination="xWz-Ol-XDo" id="6gZ-ss-AnA"/>
                         <outlet property="nameLabel" destination="ToG-vC-HuD" id="GAs-Iy-zm9"/>
+                        <outlet property="rideAccess" destination="TCB-eC-P2d" id="Bud-2O-Axv"/>
                         <outlet property="testResults" destination="nfI-xY-r8E" id="Rb1-Kr-3oZ"/>
                     </connections>
                 </viewController>
