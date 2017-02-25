@@ -8,7 +8,7 @@
 
 import Foundation
 
-import Foundation
+import UIKit
 
 protocol Accessable {
     
@@ -58,15 +58,32 @@ class Access: Accessable {
     
     static func discountSwipe(pass: Pass) -> String {
         switch pass.entrant {
-        case Employee.foodeService, Employee.maintenance, Employee.rideService:
+        case Employee.foodeService, Employee.contract, Employee.maintenance, Employee.rideService:
             return "Entrant is entitled to a \(discountAmount["employee"]![0])% discount on food and a \(discountAmount["employee"]![1])% discount on merchandise"
         case Employee.manager:
             return "Entrant is entitled to a \(discountAmount["manager"]![0])% discount on food and a \(discountAmount["manager"]![1])% discount on merchandise"
         case Guest.vip:
             return "Entrant is entitled to a \(discountAmount["vip"]![0])% discount on food and a \(discountAmount["vip"]![1])% discount on merchandise"
         default:
-            return "None"
-            
+            return "No Discounts Available"
+        }
+    }
+    
+    static func labelChange(pass: Pass, labelOne: UILabel, labelTwo: UILabel) {
+        switch pass.entrant {
+        case Employee.foodeService, Employee.maintenance, Employee.rideService:
+            labelOne.text = "\(discountAmount["employee"]![1])% discount on merchandise"
+            labelTwo.text = "\(discountAmount["employee"]![0])% discount on food"
+        case Employee.manager:
+            labelOne.text = "\(discountAmount["manager"]![1])% discount on merchandise"
+            labelTwo.text = "\(discountAmount["manager"]![0])% discount on food"
+        case Guest.vip:
+            labelOne.text = "\(discountAmount["vip"]![1])% discount on merchandise"
+            labelTwo.text = "\(discountAmount["vip"]![0])% discount on food"
+        default:
+            labelOne.text = "No Discount Available"
+            labelTwo.text = "No Discount Available"
+
         }
     }
 }

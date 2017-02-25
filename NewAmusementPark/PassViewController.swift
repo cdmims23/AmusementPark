@@ -14,10 +14,12 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var testResults: UILabel!
     @IBOutlet weak var entrantTypeLabel: UILabel!
-    @IBOutlet weak var merchandiseDiscount: UILabel!
     @IBOutlet weak var areaAccess: UIButton!
     @IBOutlet weak var rideAccess: UIButton!
     @IBOutlet weak var discountAccess: UIButton!
+    @IBOutlet weak var merchandiseDiscount: UILabel!
+    @IBOutlet weak var foodDiscount: UILabel!
+    @IBOutlet weak var rideLabel: UILabel!
     
     
     
@@ -65,9 +67,7 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
          picker.delegate = self
          nameLabel.text = "\(entrantPass.firstName!) \(entrantPass.lastName!)"
         entrantTypeLabel.text = entrantPass.entrant.newValue
-        //merchandiseDiscount.text = Access.discountAmount[""]
-        
-        // Do any additional setup after loading the view.
+        Access.labelChange(pass: entrantPass, labelOne: merchandiseDiscount, labelTwo: foodDiscount)
     }
 
     override func didReceiveMemoryWarning() {

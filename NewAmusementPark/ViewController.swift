@@ -159,6 +159,8 @@ class ViewController: UIViewController {
     
     /* The populate data button automatically inputs data to create a pass for a classic entrant to test the pass generator */
     @IBAction func populateData(_ sender: UIButton) {
+        entrantSelection(guestButton)
+        detailedEntrantSelection(typeTwoButton)
         entrantHolder = Guest.classic
         dateOfBirth.text = "01/01/1901"
         firstName.text = "Jane"
