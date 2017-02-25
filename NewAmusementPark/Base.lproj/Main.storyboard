@@ -676,6 +676,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="entrantTypeLabel" destination="rVU-hL-bUz" id="NfH-4K-zhB"/>
                         <outlet property="myImageView" destination="xWz-Ol-XDo" id="6gZ-ss-AnA"/>
                         <outlet property="nameLabel" destination="ToG-vC-HuD" id="GAs-Iy-zm9"/>
                         <outlet property="testResults" destination="nfI-xY-r8E" id="Rb1-Kr-3oZ"/>

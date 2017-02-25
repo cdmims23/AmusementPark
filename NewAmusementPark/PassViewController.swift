@@ -13,6 +13,7 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var testResults: UILabel!
+    @IBOutlet weak var entrantTypeLabel: UILabel!
  
     
     
@@ -42,7 +43,8 @@ class PassViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidLoad()
          picker.delegate = self
          nameLabel.text = "\(entrantPass.firstName!) \(entrantPass.lastName!)"
- 
+        entrantTypeLabel.text = entrantPass.entrant.newValue
+        
         // Do any additional setup after loading the view.
     }
 

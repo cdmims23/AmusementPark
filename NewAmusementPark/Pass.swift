@@ -9,27 +9,45 @@
 import Foundation
 
 protocol EntrantType {
+    var newValue: String { get }
+}
+
+extension EntrantType {
+    var newValue: String {
+        return self.newValue
+    }
+}
+
+enum Employee: String, EntrantType {
+    case foodeService = "Food Service"
+    case rideService = "Ride Service"
+    case maintenance = "Maintenance"
+    case manager = "Manager"
+    case contract = "Contract"
     
+    var newValue: String {
+        return self.rawValue
+    }
 }
 
-enum Employee: EntrantType {
-    case foodeService
-    case rideService
-    case maintenance
-    case manager
-    case contract
+enum Guest: String, EntrantType {
+    case classic = "Classic Guest"
+    case vip = "VIP Guest"
+    case freechild = "Child Guest"
+    case season = "Seasonal Guest"
+    case senior = "Senior Guest"
+    
+    var newValue: String {
+        return self.rawValue
+    }
 }
 
-enum Guest: EntrantType {
-    case classic
-    case vip
-    case freechild
-    case season
-    case senior
-}
-
-enum Other: EntrantType {
-    case vendor
+enum Other: String, EntrantType {
+    case vendor = "Vendor"
+    
+    var newValue: String {
+        return self.rawValue
+    }
 }
 
 enum creationError: String, Error{

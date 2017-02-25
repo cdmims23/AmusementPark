@@ -20,6 +20,7 @@ protocol Accessable {
 // Created static methods in Access class to be able to call the directly.
 
 class Access: Accessable {
+    static var discountAmount: [String: [Int]] = ["employee": [15, 20], "manager": [25, 25], "vip": [10, 20]]
     
     init() {
         
@@ -58,11 +59,11 @@ class Access: Accessable {
     static func discountSwipe(pass: Pass) -> String {
         switch pass.entrant {
         case Employee.foodeService, Employee.maintenance, Employee.rideService:
-            return "Entrant is entitled to a 15% discount on food and a 20% discount on merchandise"
+            return "Entrant is entitled to a \(discountAmount["employee"]![0])% discount on food and a \(discountAmount["employee"]![1])% discount on merchandise"
         case Employee.manager:
-            return "Entrant is entitled to a 25% discount on food and a 25% discount on merchandise"
+            return "Entrant is entitled to a \(discountAmount["manager"]![0])% discount on food and a \(discountAmount["manager"]![1])% discount on merchandise"
         case Guest.vip:
-            return "Entrant is entitled to a 10% discount on food and a 20% discount on merchandise"
+            return "Entrant is entitled to a \(discountAmount["vip"]![0])% discount on food and a \(discountAmount["vip"]![1])% discount on merchandise"
         default:
             return "None"
             
