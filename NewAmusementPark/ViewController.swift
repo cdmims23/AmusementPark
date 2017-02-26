@@ -106,7 +106,7 @@ class ViewController: UIViewController {
             } else {
                 changeColor(sender: sender)
                 activateTextField(typeName: "Maintenance")
-                entrantHolder = Employee.manager
+                entrantHolder = Employee.maintenance
                 checkEntrant()
             }
         case typeFourButton:
