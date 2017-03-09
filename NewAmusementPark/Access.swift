@@ -10,17 +10,17 @@ import Foundation
 
 import UIKit
 
-protocol Accessable {
-    
+protocol Accessible {
+    static var discountAmount: [String : [Float]] { get }
     static func areaSwipe(pass: Pass) -> String
     static func rideSwipe(pass: Pass) -> String
     static func discountSwipe(pass: Pass) -> String
 }
 
-// Created static methods in Access class to be able to call the directly.
+// Created static methods in Access class to be able to call them directly.
 
-class Access: Accessable {
-    static var discountAmount: [String: [Int]] = ["employee": [15, 20], "manager": [25, 25], "vip": [10, 20]]
+class Access: Accessible {
+    static let discountAmount: [String: [Float]] = ["employee": [15, 20], "manager": [25, 25], "vip": [10, 20]]
     
     init() {
         
@@ -55,6 +55,8 @@ class Access: Accessable {
             return "Access All Rides"
         }
     }
+    
+    // Dictionary values are force unwrapped because because they will always have a value
     
     static func discountSwipe(pass: Pass) -> String {
         switch pass.entrant {
